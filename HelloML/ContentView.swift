@@ -8,12 +8,34 @@
 import SwiftUI
 import CoreML
 
+struct ProbabilityListView: View {
+    let probs: [Dictionary<String, Double>.Element]
+    
+    var body: some View {
+        List {
+            ForEach(probs, id: \.key) { key, value in
+                HStack {
+                    Text(key)
+                    Spacer()
+                    Text(String(format: "%.2f%%", value * 100))
+                }
+            }
+        }.listStyle(.plain)
+    }
+}
+
+
 struct ContentView: View {
     
     let images = ["1", "2", "3"]
     let model = try! MobileNetV2(configuration: MLModelConfiguration())
     
+    @State private var probs: [String: Double] = [:]
     @State private var currentIndex = 0
+    
+    private var sortedProbs: [Dictionary<String, Double>.Element] {
+        return probs.sorted { $0.value > $1.value }
+    }
     
     var body: some View {
         VStack {
@@ -42,19 +64,12 @@ struct ContentView: View {
                 }
                 do {
                     let prediction = try model.prediction(image: buffer)
-                    print("Prediction: \(prediction.classLabel)")
+                    probs = prediction.classLabelProbs
                 } catch {
                     print("Error during prediction: \(error)")
                 }
-                
-                
             }.buttonStyle(.borderedProminent)
-            
-            List {
-                Text("Prediction 1")
-                Text("Prediction 2")
-                Text("Prediction 3")
-            }
+            ProbabilityListView(probs: sortedProbs)
         }
     }
 }
