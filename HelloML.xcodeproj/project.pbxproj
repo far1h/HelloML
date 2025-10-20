@@ -12,6 +12,7 @@
 		917965A82EA552A200D7F306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917965A72EA552A200D7F306 /* Assets.xcassets */; };
 		917965AB2EA552A200D7F306 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917965AA2EA552A200D7F306 /* Preview Assets.xcassets */; };
 		917965B22EA552D700D7F306 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 917965B12EA552D700D7F306 /* MobileNetV2.mlmodel */; };
+		91E819102EA5C4640085F868 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8190F2EA5C4640085F868 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		917965A72EA552A200D7F306 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		917965AA2EA552A200D7F306 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		917965B12EA552D700D7F306 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		91E8190F2EA5C4640085F868 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				917965A72EA552A200D7F306 /* Assets.xcassets */,
 				917965B12EA552D700D7F306 /* MobileNetV2.mlmodel */,
 				917965A92EA552A200D7F306 /* Preview Content */,
+				91E8190F2EA5C4640085F868 /* UIImage+Extensions.swift */,
 			);
 			path = HelloML;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				917965B22EA552D700D7F306 /* MobileNetV2.mlmodel in Sources */,
 				917965A62EA552A100D7F306 /* ContentView.swift in Sources */,
 				917965A42EA552A100D7F306 /* HelloMLApp.swift in Sources */,
+				91E819102EA5C4640085F868 /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

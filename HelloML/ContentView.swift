@@ -29,7 +29,13 @@ struct ContentView: View {
                 
             }.buttonStyle(.bordered)
             Button("Predict") {
-                // Prediction logic goes here              
+                guard let uiImage = UIImage(named: images[currentIndex]) else {
+                    print("Image not found")
+                    return
+                }
+                let resizedImage = uiImage.resized(to: CGSize(width: 224, height: 224))
+                
+                
             }.buttonStyle(.borderedProminent)
             
             List {
