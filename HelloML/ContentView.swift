@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CoreML
 
 struct ContentView: View {
     
     let images = ["1", "2", "3"]
+    let model = try! MobileNetV2(configuration: MLModelConfiguration())
+    
     @State private var currentIndex = 0
     
     var body: some View {
@@ -34,6 +37,15 @@ struct ContentView: View {
                     return
                 }
                 let resizedImage = uiImage.resized(to: CGSize(width: 224, height: 224))
+                guard let buffer = resizedImage.toCVPixelBuffer() else {
+                    return
+                }
+                do {
+                    let prediction = try model.prediction(image: buffer)
+                    print("Prediction: \(prediction.classLabel)")
+                } catch {
+                    print("Error during prediction: \(error)")
+                }
                 
                 
             }.buttonStyle(.borderedProminent)
